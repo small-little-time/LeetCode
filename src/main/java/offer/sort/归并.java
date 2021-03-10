@@ -20,12 +20,10 @@ public class 归并 {
             return;
         }
         int M = (L + R) / 2;
-        //左边的数不断进行拆分
         mergeSort(arrays, L, M);
-        //右边的数不断进行拆分
         mergeSort(arrays, M + 1, R);
-        //合并
         mergeArray(arrays, L, M + 1, R);
+      
     }
 
 
@@ -38,8 +36,7 @@ public class 归并 {
         for (int i = mid; i <= R; i++) {
             rightArray[i - mid] = arrays[i];
         }
-        int i = 0, j = 0;
-        int k = L;
+        int i = 0, j = 0, k = 0;
         while (i < leftArray.length && j < rightArray.length) {
             if (leftArray[i] <= rightArray[j]) {
                 arrays[k] = leftArray[i];
@@ -53,8 +50,8 @@ public class 归并 {
         }
         while (i < leftArray.length) {
             arrays[k] = leftArray[i];
-            i++;
             k++;
+            i++;
         }
         while (j < rightArray.length) {
             arrays[k] = rightArray[j];

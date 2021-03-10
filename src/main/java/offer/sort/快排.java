@@ -17,13 +17,12 @@ public class 快排 {
     public void sort(int[] nums, int L, int R) {
         int i = L;
         int j = R;
-        int mid = nums[j + (i - j) / 2];
+        int mid = (i + j) / 2;
         while (i <= j) {
-            while (mid > nums[i]) {
+            while (nums[i] < nums[mid]) {
                 i++;
             }
-
-            while (mid < nums[j]) {
+            while (nums[j] > nums[mid]) {
                 j--;
             }
             if (i <= j) {
@@ -32,11 +31,11 @@ public class 快排 {
                 j--;
             }
         }
-        if (L < j) {
-            sort(nums, L, j);
-        }
-        if (R > i) {
+        if (i < R) {
             sort(nums, i, R);
+        }
+        if (j > L) {
+            sort(nums, L, j);
         }
 
     }
