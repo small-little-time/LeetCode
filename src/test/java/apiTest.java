@@ -141,6 +141,6 @@ public class apiTest {
         Integer b = 1000;
         System.out.println(a == b);
         System.out.println(a.equals(b));
-        
+        System.out.println(2 << 3);
     }
 }

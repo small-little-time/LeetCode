@@ -26,20 +26,7 @@ public class 反转链表 {
         return prev;
     }
 
-    public static ListNode reverseList2(ListNode head) {
-        ListNode pre = null;
-        ListNode cur = head;
-        while (cur != null) {
-            ListNode temp = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = temp;
-        }
-        return pre;
-
-    }
-
-    public ListNode reverseList3(ListNode head) {
+    public ListNode reverseList2(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -48,8 +35,6 @@ public class 反转链表 {
         head.next = null;
         return p;
     }
-
-
 
     /*
     *
