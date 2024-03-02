@@ -25,7 +25,7 @@ public class 三数之和 {
                     oneResult.add(nums[i]);
                     oneResult.add(nums[j]);
                     oneResult.add(c);
-                    oneResult.sort((Comparator.comparingInt(n -> n)));
+                    oneResult.sort(Comparator.comparing(n->n));
                     result.add(oneResult);
                 }
 

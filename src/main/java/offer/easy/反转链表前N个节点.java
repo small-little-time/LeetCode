@@ -10,7 +10,7 @@ import common.ListNode;
 public class 反转链表前N个节点 {
     public static void main(String[] args) {
         反转链表前N个节点 test = new 反转链表前N个节点();
-        ListNode listNode = test.reverseN(ListNode.createLinkedList(new int[]{1, 2, 3, 4, 5, 6}), 4);
+        ListNode listNode = test.reverseN2(ListNode.createLinkedList(new int[]{1, 2, 3, 4, 5, 6}), 4);
         ListNode.printLinkedList(listNode);
     }
 
@@ -28,5 +28,21 @@ public class 反转链表前N个节点 {
 
     }
 
+    public ListNode reverseN2(ListNode head, int n) {
+        if (n == 1) {
+            return head;
+        }
+        ListNode pre = null;
+        ListNode cur = head;
+        for (int i = 0; i < n; i++) {
+            ListNode temp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = temp;
+        }
+        head.next = cur;
+        return pre;
+
+    }
 
 }

@@ -1,8 +1,6 @@
 package easy;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author ZhangYi zhangyi-time@foxmail.com
@@ -11,7 +9,7 @@ import java.util.Stack;
 public class 有效的括号 {
     public static void main(String[] args) {
         System.out.println(isValid("()))"));
-        System.out.println(isValid2("({]]"));
+        System.out.println(isValid2("([)]"));
     }
 
     public static boolean isValid(String s) {
@@ -66,4 +64,6 @@ public class 有效的括号 {
 
         return stack.empty();
     }
+
+
 }

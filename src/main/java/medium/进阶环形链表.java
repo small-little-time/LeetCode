@@ -19,16 +19,44 @@ public class 进阶环形链表 {
         System.out.println(list.next.next.next.next.val);
 
         System.out.println(detectCycle(list).val);
+        System.out.println(detectCycle2(list).val);
     }
 
     public static ListNode detectCycle(ListNode head) {
-        HashSet<ListNode> set = new HashSet<>();
-        while (head != null) {
-            if (!set.add(head)) {
-                return head;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(slow != fast){
+            if(fast == null || fast.next == null){
+                return null;
             }
-            head = head.next;
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return null;
+        fast = head;
+        while(fast != slow){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return fast;
+    }
+
+    public static ListNode detectCycle2(ListNode head) {
+        ListNode fast = head, slow = head;
+        while (true) {
+            if (fast == null || fast.next == null) {
+                return null;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                break;
+            }
+        }
+        fast = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
     }
 }

@@ -8,6 +8,7 @@ public class 接雨水 {
     public static void main(String[] args) {
         接雨水 test = new 接雨水();
         System.out.println(test.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        System.out.println(test.trap2(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 
     public int trap(int[] height) {
@@ -32,4 +33,23 @@ public class 接雨水 {
         return res;
     }
 
+    public int trap2(int[] height) {
+        int res = 0;
+        int left = 0;
+        int right = height.length - 1;
+        int leftMax = height[left];
+        int rightMax = height[right];
+        while (left != right) {
+            leftMax = Math.max(leftMax, height[left]);
+            rightMax = Math.max(rightMax, height[right]);
+            if (leftMax < rightMax) {
+                res += leftMax - height[left];
+                left++;
+            } else {
+                res += rightMax - height[right];
+                right--;
+            }
+        }
+        return res;
+    }
 }
